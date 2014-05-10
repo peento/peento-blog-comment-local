@@ -1,0 +1,25 @@
+{
+  "name": "peento-blog-comment-local",
+  "version": "0.0.1",
+  "description": "local comment bar for peento-blog",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/peento/peento-blog-comment-local.git"
+  },
+  "keywords": [
+    "blog",
+    "peento",
+    "Simditor"
+  ],
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peento/peento-blog-comment-local/issues"
+  },
+  "homepage": "https://github.com/peento/peento-blog-comment-local",
+  "dependencies": {}
+}
