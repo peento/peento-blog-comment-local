@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Comments</h3>
+  </div>
+  <div class="panel-body">
+    {% assign comment_list = article.id|get_comment_list_by_article_id %}
+    {% for item in comment_list %}
+    <div>
+      <strong>{{item.name|escape}}</strong> said: <i>({{item.created_at|date:'%Y-%m-%d %H:%M:%S'}})</i>
+      <pre>{{item.content|escape}}</pre>
+    </div>
+    <hr>
+    {% endfor %}
+    
+    {% assign comment_count = article.id|get_comment_count_by_article_id %}
+    {% include "front/inc/comment_pagination" count=comment_count %}
+
+    <form role="form" class="form-horizontal" method="post" action="/local_comment" enctype="multipart/form-data">
+      <input type="hidden" name="article_id" value="{{article.id|escape}}">
+      <div class="form-group">
+        <label for="ipt-name" class="col-sm-2 control-label">Your Name</label>
+        <div class="col-sm-10">
+          <input type="text" name="name" class="form-control" id="ipt-name" placeholder="" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ipt-email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" name="email" class="form-control" id="ipt-email" placeholder="" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ipt-content" class="col-sm-2 control-label">Content</label>
+        <div class="col-sm-10">
+          <textarea name="content" class="form-control" id="ipt-content" rows="5" required></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
