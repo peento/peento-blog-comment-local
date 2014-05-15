@@ -1,4 +1,5 @@
 {% assign pagination_info = count|make_pagination %}
+{% if count > 0 %}
 <div class="text-center">
   <ul class="pagination">
     <li><a href="{{pagination_info.previous.url|escape}}">&laquo;</a></li>
@@ -10,3 +11,4 @@
     <li><a href="{{pagination_info.next.url|escape}}">&raquo;</a></li>
   </ul>
 </div>
+{% endif %}
